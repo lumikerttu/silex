@@ -29,10 +29,8 @@ class Application extends SilexApplication
             ],
         ]);
 
-    /**
-     * Creates all needed tables to database if they don't exist.
-     */
-    if (!$this['db']->getSchemaManager()->tablesExist('bookings')) {
+        // Creating a table if it doesn't exist yet
+        if (!$this['db']->getSchemaManager()->tablesExist('bookings')) {
             $this['db']->executeQuery("CREATE TABLE bookings (
                 id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                 firstName VARCHAR(40) NOT NULL,
@@ -49,7 +47,7 @@ class Application extends SilexApplication
             );");
         }
 
-        $this->get('/bookings', function () {
+        $this->get('/bookings/create', function () {
             return $this['twig']->render('base.html.twig');
         });
     }

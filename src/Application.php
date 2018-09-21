@@ -2,6 +2,7 @@
 namespace BookingApp;
 use BookingApp\Controllers\CreateBookingController;
 use BookingApp\Controllers\ListBookingsController;
+
 use Silex\Application as SilexApplication;
 use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\FormServiceProvider;
